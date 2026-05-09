@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bass Guitar Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="masthead">
+                <div class="brand-lockup">
+                    <div class="brand-logo">
+                        <!-- Wordmark-only SVG: larger title with black → wood gradient crossing the center (near the 'S') -->
+                        <svg class="brand-logo-svg" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BasSearch logo">
+                            <defs>
+                                <linearGradient id="woodGrad" x1="0%" x2="100%">
+                                    <stop offset="0%" stop-color="#4a2d1b" />
+                                    <stop offset="60%" stop-color="#7f4f2a" />
+                                    <stop offset="100%" stop-color="#b06f2a" />
+                                </linearGradient>
+                                <filter id="logoShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity="0.28"/>
+                                </filter>
+                            </defs>
+
+                            <!-- Large BasSearch wordmark split into parts: 'Bas' (black), 'S' (wood with black stroke), 'earch' (wood) -->
+                            <g transform="translate(20,140)" filter="url(#logoShadow)">
+                                <text id="title" x="0" y="0" font-family="Fraunces, Georgia, serif" font-weight="900" font-size="88"><tspan fill="#000000">Bas</tspan><tspan fill="url(#woodGrad)">S</tspan><tspan fill="url(#woodGrad)">earch</tspan></text>
+                            </g>
+
+                            <!-- small tagline below -->
+                            <text x="24" y="170" font-family="Space Mono, monospace" font-size="12" fill="#e9d7c2">Curated selection</text>
+                        </svg>
+                    </div>
+                    <p class="eyebrow">Electric bass collection</p>
+                </div>
+                <div class="masthead-copy">
+                    <h1>Find a bass with the right voice.</h1>
+                    <p class="subtitle">A warm, searchable catalog of electric basses with images, features, and score-based comparisons.</p>
+                </div>
+                <div class="hero-note">
+                    <span class="hero-note-label">Field note</span>
+                    <p>Use the filters to narrow by pickup, strings, frets, or score. Search feels closer to flipping through a curated shop wall than using a generic app.</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-bar" 
+                placeholder="Search by bass name..."
+            >
+            <button id="searchBtn" class="btn btn-primary">Search</button>
+            <button id="clearBtn" class="btn btn-secondary">Clear</button>
+        </div>
+
+        <div class="filter-section">
+            <input
+                type="text"
+                id="pickupFilter"
+                class="filter-input"
+                placeholder="Pickup contains..."
+            >
+            <select id="stringsFilter" class="filter-input">
+                <option value="">Any strings</option>
+                <option value="4">4 strings</option>
+                <option value="5">5 strings</option>
+                <option value="6">6 strings</option>
+                <option value="7">7 strings</option>
+            </select>
+            <select id="fretsFilter" class="filter-input">
+                <option value="">Any frets</option>
+                <option value="0">0 frets</option>
+                <option value="19">19 frets</option>
+                <option value="20">20 frets</option>
+                <option value="21">21 frets</option>
+                <option value="22">22 frets</option>
+                <option value="24">24 frets</option>
+            </select>
+            <input
+                type="number"
+                id="minScoreFilter"
+                class="filter-input"
+                placeholder="Min score"
+                min="0"
+                max="100"
+            >
+            <input
+                type="number"
+                id="maxScoreFilter"
+                class="filter-input"
+                placeholder="Max score"
+                min="0"
+                max="100"
+            >
+        </div>
+
+        <div class="stats">
+            <p id="statsText">Loading bass data...</p>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading basses...</p>
+        </div>
+
+        <div id="bassGrid" class="bass-grid">
+            <!-- Bass cards will be inserted here -->
+        </div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+            <p>No basses found. Try adjusting your search.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
