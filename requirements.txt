@@ -1,8 +1,4 @@
-fastapi==0.104.1
-sqlmodel==0.0.14
-sqlalchemy==2.0.23
-uvicorn==0.24.0
-webdriver-manager==4.0.1
-beautifulsoup4==4.12.2
-requests==2.31.0
-
+beautifulsoup4==4.14.3
+fastapi==0.136.1
+Requests==2.33.1
+sqlmodel==0.0.38
